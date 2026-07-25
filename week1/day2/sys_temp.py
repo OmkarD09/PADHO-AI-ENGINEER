@@ -12,6 +12,7 @@ if not my_api_key:
 client = Groq(api_key=my_api_key)
 
 model = "llama-3.3-70b-versatile"
+model = "llama3-70b-8192"
 role = "user"
 prompt = "Suggest a name for my food company."
 
@@ -28,6 +29,7 @@ message = {
 messages = [message_system, message]
 
 response = client.chat.completions.create(model=model, messages=messages, temperature=2)
+response = client.chat.completions.create(model=model, messages=messages, temperature=1.0)
 
 
 print(response.choices[0].message.content)
