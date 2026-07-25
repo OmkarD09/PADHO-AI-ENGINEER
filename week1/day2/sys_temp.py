@@ -1,7 +1,7 @@
 import os
 from pathlib import Path
 from dotenv import load_dotenv
-from groq import Groq
+from groq import Groq  # type: ignore
 
 load_dotenv()
 my_api_key = os.getenv("GROQ_API_KEY")
