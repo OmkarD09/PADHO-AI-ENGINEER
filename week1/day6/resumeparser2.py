@@ -16,6 +16,16 @@ role = "user"
 
 from pydantic import BaseModel
 
+class JobDescription(BaseModel):
+    role: str
+    required_skills: list[str]
+    preffered_skills: list[str]
+    minimum_experience: float|None
+    educational_requirement: str
+    responsibilities: list[str]
+    
+    jobd_schema = JobDescription.model_json_schema()
+
 
 
 
