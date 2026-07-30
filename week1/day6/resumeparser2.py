@@ -17,63 +17,7 @@ role = "user"
 from pydantic import BaseModel
 
 
-hr_requirements = """
-JOB TITLE: Full Stack Developer
 
-REQUIRED SKILLS:
-- React.js
-- JavaScript
-- Node.js
-- Express.js
-- MongoDB
-- REST API development
-- Git and GitHub
-
-EXPERIENCE:
-- Minimum 2 years of relevant web development experience
-- Experience building full-stack web applications
-- Experience working with frontend and backend integration
-- Experience with authentication and authorization
-
-EDUCATION:
-- Bachelor's degree in Computer Science, Computer Engineering,
-  Information Technology, or related field
-
-PREFERRED SKILLS:
-- TypeScript
-- Next.js
-- Docker
-- AWS
-- MySQL
-- CI/CD
-- Tailwind CSS
-
-PROJECT REQUIREMENTS:
-- At least 2 relevant full-stack projects
-- Experience developing REST APIs
-- Experience with database design and integration
-- Deployment experience is preferred
-
-ADDITIONAL REQUIREMENTS:
-- Understanding of Data Structures and Algorithms
-- Understanding of software development practices
-- Experience working with Git-based team workflows
-- Good problem-solving skills
-- Good written and verbal communication skills
-
-SELECTION WEIGHTS:
-- Required Skills: 35%
-- Relevant Experience: 25%
-- Projects: 15%
-- Education: 10%
-- Preferred Skills: 10%
-- Certifications and Achievements: 5%
-
-MINIMUM MATCH SCORE:
-- 75% or above: Shortlist
-- 60% to 74%: Manual HR Review
-- Below 60%: Not Shortlisted
-"""
 
 system_prompt = f"""You are a HR manager. match the candidate's resume with the job requirements provided below. Extract the following information from the resume:{hr_requirements}. """
 
