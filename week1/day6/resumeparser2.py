@@ -86,9 +86,16 @@ Analyze the following job description:
 {job_description}
 """
 
-message_system = {
-    "role": "system",
-    "content": system_prompt
+message_system={
+    "role" : "system",
+    "content" : system_prompt
+}
+message_user={
+    "role" : "user",
+    "content" : user_prompt
+}
+response_format={
+    "type" : "json_object"
 }
 
 
