@@ -62,15 +62,28 @@ class JobDescription(BaseModel):
 
 
 system_prompt = f"""
-You are an Expert HR professional. 
+You are an expert HR assistant.
 
-You have been given a job description in text format. 
-Your task is to extract the following information from the job description 
-and return it in JSON format according to the schema: {JobDescription.jobd_schema}
+Your job is to analyze job descriptions and extract
+structured information from them.
 
+Return ONLY valid JSON matching this schema:
+
+{jobd_schema}
 IMPORTANT:
-DO NOT return the schema itself
-DO NOT return the fields like "properties", "type", "required", "title", "description" etc.
+Do NOT return the schema itself.
+Do NOT return fields like "properties", "title" or "type".
+Fill the schema with actual information extracted from the job description.
+
+If minimum experience is not mentioned, return null.
+If information for a list is missing, return an empty list.
+Do not invent information.
+"""
+
+user_prompt = f"""
+Analyze the following job description:
+
+{job_description}
 """
 
 message_system = {
