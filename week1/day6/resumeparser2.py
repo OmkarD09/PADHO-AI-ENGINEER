@@ -98,13 +98,9 @@ response_format={
     "type" : "json_object"
 }
 
-
+messages=[message_system, message_user]
        
-prompt = f"""This is a customer Ticket, Please extract the following information from the text:{text}"""
-message = {
-    "role": role,
-    "content": prompt
-    }
+response=client.chat.completions.create(model=model, messages=messages, response_format=response_format)
 
 messages = [message_system, message]
 
