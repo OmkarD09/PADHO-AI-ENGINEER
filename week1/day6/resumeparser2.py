@@ -102,13 +102,44 @@ messages=[message_system, message_user]
        
 response=client.chat.completions.create(model=model, messages=messages, response_format=response_format)
 
-messages = [message_system, message]
+answer=response.choices[0].message.content
 
-response = client.chat.completions.create(model=model, messages=messages)
+import json
+raw_json=answer
+data_file=json.loads(raw_json)
+job_description = JobDescription(**data_file)
+
+print(job.minimum_experience)
+print(job.education_requirements)
 
 
-answer = response.choices[0].message.content
-print(answer)
 
-#isko padhte kaise hain
+
+#parse real
+class MatchResult(BaseModel):
+    score: float
+    details: dict
+class Experience(BaseModel):
+    company: str | None = None
+    role: str | None = None
+    duration: str | None = None
+    description: str | None = None
+    skills_used: list[str] = []
+
+class Resume(BaseModel):
+    name: str | None = None
+    email: str | None = None
+    phone: str | None = None
+
+    total_experience_years: float | None = None
+
+    skills: list[str] = []
+    experiences: list[Experience] = []
+    education: list[str] = []
+    projects: list[str] = []
+    certifications: list[str] = []
+
+
+resume_schema = Resume.model_json_schema()
+
 
